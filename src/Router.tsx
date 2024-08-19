@@ -1,6 +1,6 @@
-import { BrowserRouter, Link, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Chat from "./pages/chat";
-import Home from "./pages/home";
+import Home from "./pages/home/home";
 import { useRecoilValue } from "recoil";
 import { userState } from "./state/userState";
 import Login from "./pages/user/login";

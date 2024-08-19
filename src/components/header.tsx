@@ -12,16 +12,18 @@ const Header = () => {
 
 const Container = styled.div`
   display: flex;
+  position: sticky;
   justify-content: space-evenly;
   width: 100%;
   height: var(--header-height);
   align-items: center;
   background-color: var(--main-color);
+  top: 0;
   /* padding: 0 25px; */
 `;
 
 const A = styled(Link)`
-  width: 100px;
+  width: fit-content;
   height: 100%;
   color: white;
   font-size: 1.3rem;
