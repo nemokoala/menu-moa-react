@@ -4,8 +4,14 @@ import styled from "styled-components";
 const Header = () => {
   return (
     <Container>
-      <A to="/">메뉴모아</A>
-      <Input placeholder="가게검색" />
+      <Logo to="/">메뉴모아</Logo>
+      <div>
+        <Input placeholder="가게검색" />
+        <LoginContainer>
+          <Link to="/login">로그인</Link>
+          <Link to="/register">회원가입</Link>
+        </LoginContainer>
+      </div>
     </Container>
   );
 };
@@ -19,10 +25,14 @@ const Container = styled.div`
   align-items: center;
   background-color: var(--main-color);
   top: 0;
-  /* padding: 0 25px; */
+
+  & div {
+    display: flex;
+    gap: 10px;
+  }
 `;
 
-const A = styled(Link)`
+const Logo = styled(Link)`
   width: fit-content;
   height: 100%;
   color: white;
@@ -41,6 +51,19 @@ const Input = styled.input`
   &:focus {
     outline: none;
     border: 1px solid blue;
+  }
+`;
+
+const LoginContainer = styled.div`
+  display: flex;
+  height: 35px;
+  gap: 10px;
+
+  & a {
+    height: 100%;
+    padding: 0 15px;
+    background-color: white;
+    border-radius: 7px;
   }
 `;
 export default Header;

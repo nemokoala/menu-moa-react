@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StoreList = ({ stores }) => {
@@ -5,7 +6,7 @@ const StoreList = ({ stores }) => {
   return (
     <Container>
       {stores?.map((store) => (
-        <Store key={store.name}>
+        <Store to={`/store/${store.id}`} key={store.name}>
           <img src="src/assets/images/피자.webp" />
           <TextContent>
             <div>{store.name}</div>
@@ -32,10 +33,11 @@ const Container = styled.div`
   background-color: white;
 `;
 
-const Store = styled.div`
+const Store = styled(Link)`
   width: 100%;
   display: grid;
   grid-template-columns: 100px auto;
+  justify-content: flex-start;
   align-items: center;
   padding: 20px;
   /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); */
@@ -54,6 +56,7 @@ const Store = styled.div`
 const TextContent = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 5px;
 
   & div:nth-child(1) {
     font-size: 1.2rem;

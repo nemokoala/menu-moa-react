@@ -12,21 +12,21 @@ const types = [
 ];
 
 interface TypeContainerProps {
-  cuisine: string;
-  setCuisine: React.Dispatch<React.SetStateAction<string>>;
+  category: string;
+  setCategory: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const TypeContainer: React.FC<TypeContainerProps> = ({
-  cuisine,
-  setCuisine,
+  category,
+  setCategory,
 }) => {
   return (
     <Container>
       {types.map((type) => (
         <FoodContainer
           key={type.name}
-          $active={cuisine === type.name}
-          onClick={() => setCuisine(type.name)}
+          $active={category === type.name}
+          onClick={() => setCategory(type.name)}
         >
           <FoodImg src={type.url}></FoodImg>
           <span>{type.name}</span>
@@ -63,12 +63,14 @@ const FoodContainer = styled.div<{ $active: boolean }>`
   align-items: center;
   padding: 8px;
   gap: 10px;
-  border-radius: 10px;
-  transition: background-color 0.5s;
-  background-color: ${(props) => (props.$active ? "#e0e6ff !important" : "")};
+  transition: border-bottom 0.3s;
+  /* background-color: ${(props) =>
+    props.$active ? "#e0e6ff !important" : ""}; */
+  border-bottom: ${(props) =>
+    props.$active ? "solid 10px #6f8cff !important" : ""};
 
   &:hover {
-    background-color: #e6e6e6;
+    border-bottom: solid 10px #c8d3ff;
     cursor: pointer;
   }
 `;

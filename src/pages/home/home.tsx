@@ -6,7 +6,7 @@ import api from "../../api";
 import StoreList from "./storeList";
 
 const Home = () => {
-  const [cuisine, setCuisine] = useState("전체");
+  const [category, setCategory] = useState("전체");
   const [page, setPage] = useState(1);
   const {
     data: stores,
@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <Container>
       <Title>원하시는 업종을 선택해주세요.</Title>
-      <TypeContainer cuisine={cuisine} setCuisine={setCuisine} />
+      <TypeContainer category={category} setCategory={setCategory} />
       {isLoading ? (
         <Title>가게 정보 로딩 중...</Title>
       ) : (
