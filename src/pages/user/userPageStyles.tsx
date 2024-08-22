@@ -31,13 +31,16 @@ export const Label = styled.div`
   font-weight: 500;
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<{ $isError?: string | null }>`
   width: 100%;
   height: 40px;
   padding: 0 10px;
   border-radius: 5px;
   font-size: 1.1rem;
-  border: 0;
+  border: ${(props) =>
+    props.$isError
+      ? "1px solid tomato !important"
+      : 0}; //정규식에 맞지 않을경우 빨간색 표시
 
   &:focus {
     border-color: #3498db; /* 포커스 시 테두리 색상 */
@@ -63,4 +66,9 @@ export const Button = styled.button`
   &:hover {
     cursor: pointer;
   }
+`;
+
+export const ErorrText = styled.span`
+  margin-top: 5px;
+  color: tomato;
 `;
